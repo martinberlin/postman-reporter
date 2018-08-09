@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SkygateWebsite</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="author" content="Martin Fasani working for SkyGate GmbH">
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <style>
+        body {margin: 1em;font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif}
+    </style>
+</head>
+<body>
+<main role="main"><div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+        <h1 style="font-weight: 900">SkygateWebsite Postman Test-Suite</h1>
+        </div>
+    </div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 style="font-weight: 600">/Check home and contact pages</h1>
+    </div>
+    <div class="col-md-12">
+        <div class="row">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-11">
+                <h3>Home</h3>
+                <div style="background-color:darkgray;color:white;font-weight:bold;padding-left:0.2em">GET: {{baseurl}}</div>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6" style="color:blueviolet;font-family: Consolas;font-size: 9pt">
+
+        <span style="color:black;font-weight: bold">// Check that the Response status is 200</span><br><button type="button" class="btn btn-sm btn-light" data-toggle="collapse" data-target="#e1" title="expand">+</button>
+                            <div id="e1" class="collapse">pm.test("Status code is 200", function () { <br>    pm.response.to.have.status(200); <br>});<br><br></div><hr><br>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-11">
+                <h3>Contact page has right address</h3>
+                <div style="background-color:darkgray;color:white;font-weight:bold;padding-left:0.2em">GET: {{baseurl}}/kontakt.html</div>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6" style="color:blueviolet;font-family: Consolas;font-size: 9pt">
+
+        <span style="color:black;font-weight: bold">// Check that the Response status is 200 and contains "SkyGate Berlin"</span><br><button type="button" class="btn btn-sm btn-light" data-toggle="collapse" data-target="#e2" title="expand">+</button>
+                            <div id="e2" class="collapse">pm.test("Response time is less than 250ms", function () {<br>    pm.expect(pm.response.responseTime).to.be.below(250);<br>});<br><br>pm.test("Status code is 200", function () { <br>    pm.response.to.have.status(200); <br>});<br><br>pm.test("Address street is 'Pfuelstr. 5'", function () <br>{<br>    pm.expect(pm.response.text()).to.include("Pfuelstr. 5");<br>});<br><br>pm.test("Address Postalcade matches Kreuzbergs 10997", function () {<br>    pm.expect(pm.response.text()).to.include("10997");<br>});<br><br></div><hr><br>
+    </div>
+</div>
+
+
+
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 style="font-weight: 600">/Check content pages</h1>
+    </div>
+    <div class="col-md-12">
+        <div class="row">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-11">
+                <h3>Check foundation year</h3>
+                <div style="background-color:darkgray;color:white;font-weight:bold;padding-left:0.2em">GET: {{baseurl}}</div>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6" style="color:blueviolet;font-family: Consolas;font-size: 9pt">
+
+        <span style="color:black;font-weight: bold">// Check that the Response status is 200, and response time less than 250 ms</span><br><button type="button" class="btn btn-sm btn-light" data-toggle="collapse" data-target="#e3" title="expand">+</button>
+                            <div id="e3" class="collapse">pm.test("Status code is 200", function () { <br>    pm.response.to.have.status(200); <br>});<br><br>pm.test("Response time is less than 250ms", function () {<br>    pm.expect(pm.response.responseTime).to.be.below(250);<br>});<br><br>pm.test("Foundation year is correct 'seit 1995'", function () <br>{<br>    pm.expect(pm.response.text()).to.include("1995");<br>});<br></div><hr><br>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-11">
+                <h3>Check reference page</h3>
+                <div style="background-color:darkgray;color:white;font-weight:bold;padding-left:0.2em">GET: {{baseurl}}/referenzen.html</div>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6" style="color:blueviolet;font-family: Consolas;font-size: 9pt">
+
+        <span style="color:black;font-weight: bold">// Check that the references include important clients</span><br><button type="button" class="btn btn-sm btn-light" data-toggle="collapse" data-target="#e4" title="expand">+</button>
+                            <div id="e4" class="collapse">pm.test("Status code is 200", function () { <br>    pm.response.to.have.status(200); <br>});<br><br>pm.test("Response time is less than 250ms", function () {<br>    pm.expect(pm.response.responseTime).to.be.below(250);<br>});<br><br>pm.test("Important client 'KPMG' is on page", function () <br>{<br>    pm.expect(pm.response.text()).to.include("KPMG");<br>});<br><br>pm.test("Important client 'Bayernwerk' is on page", function () <br>{<br>    pm.expect(pm.response.text()).to.include("Bayernwerk");<br>});<br><br>pm.test("Important client 'Hansewerk ' is on page", function () <br>{<br>    pm.expect(pm.response.text()).to.include("Hansewerk ");<br>});<br><br>pm.test("Important client 'BETTER DAY' is on page", function () <br>{<br>    pm.expect(pm.response.text()).to.include("BETTER DAY");<br>});<br><br>pm.test("Important client 'Baukammer Berlin' is on page", function () <br>{<br>    pm.expect(pm.response.text()).to.include("Baukammer Berlin");<br>});<br><br>pm.test("Important client 'Bundesinstitut für Berufsbildung' is on page", function () <br>{<br>    pm.expect(pm.response.text()).to.include("BIBB");<br>});<br></div><hr><br>
+    </div>
+</div>
+
+
+
+    </div>
+</div>
+
+
+
+    </div>
+</main>
+</body>
+</html>

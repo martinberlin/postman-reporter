@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "072995a9-6350-42ec-abd3-7e6b35f9ef83",
+		"name": "SkygateWebsite",
+		"description": "Test skygate.de website",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "e2e01c6e-f9e7-415c-965c-926e36c76da5",
+			"name": "Check home and contact pages",
+			"item": [
+				{
+					"_postman_id": "4bb579fa-594a-4d67-8408-b4e1e5c5a3e6",
+					"name": "Home",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2203e6f1-a2d9-48b7-a32c-254dce3717e9",
+								"type": "text/javascript",
+								"exec": [
+									"// Check that the Response status is 200",
+									"pm.test(\"Status code is 200\", function () { ",
+									"    pm.response.to.have.status(200); ",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{baseurl}}",
+							"host": [
+								"{{baseurl}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "5836f20a-fca2-4f9c-9c21-8c9f2315e603",
+					"name": "Contact page has right address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6b7cf5fe-55ff-47b0-ab0d-8dd1428442a3",
+								"type": "text/javascript",
+								"exec": [
+									"// Check that the Response status is 200 and contains \"SkyGate Berlin\"",
+									"pm.test(\"Response time is less than 250ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(250);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () { ",
+									"    pm.response.to.have.status(200); ",
+									"});",
+									"",
+									"pm.test(\"Address street is 'Pfuelstr. 5'\", function () ",
+									"{",
+									"    pm.expect(pm.response.text()).to.include(\"Pfuelstr. 5\");",
+									"});",
+									"",
+									"pm.test(\"Address Postalcade matches Kreuzbergs 10997\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"10997\");",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{baseurl}}/kontakt.html",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"kontakt.html"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "0226e53e-78ee-4fa6-a4f8-aa0c7383ed1f",
+			"name": "Check content pages",
+			"item": [
+				{
+					"_postman_id": "135e93fe-606a-427e-a989-98d7e4795e2e",
+					"name": "Check foundation year",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e2be9623-9b6e-4c7c-a479-428522940ab4",
+								"type": "text/javascript",
+								"exec": [
+									"// Check that the Response status is 200, and response time less than 250 ms",
+									"pm.test(\"Status code is 200\", function () { ",
+									"    pm.response.to.have.status(200); ",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 250ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(250);",
+									"});",
+									"",
+									"pm.test(\"Foundation year is correct 'seit 1995'\", function () ",
+									"{",
+									"    pm.expect(pm.response.text()).to.include(\"1995\");",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{baseurl}}",
+							"host": [
+								"{{baseurl}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "b3dbe651-247a-42dd-91ae-7b21adf6e722",
+					"name": "Check reference page",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "06aa8683-cdc5-4ab7-a0b7-78a3a1fda7ce",
+								"type": "text/javascript",
+								"exec": [
+									"// Check that the references include important clients",
+									"pm.test(\"Status code is 200\", function () { ",
+									"    pm.response.to.have.status(200); ",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 250ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(250);",
+									"});",
+									"",
+									"pm.test(\"Important client 'KPMG' is on page\", function () ",
+									"{",
+									"    pm.expect(pm.response.text()).to.include(\"KPMG\");",
+									"});",
+									"",
+									"pm.test(\"Important client 'Bayernwerk' is on page\", function () ",
+									"{",
+									"    pm.expect(pm.response.text()).to.include(\"Bayernwerk\");",
+									"});",
+									"",
+									"pm.test(\"Important client 'Hansewerk ' is on page\", function () ",
+									"{",
+									"    pm.expect(pm.response.text()).to.include(\"Hansewerk \");",
+									"});",
+									"",
+									"pm.test(\"Important client 'BETTER DAY' is on page\", function () ",
+									"{",
+									"    pm.expect(pm.response.text()).to.include(\"BETTER DAY\");",
+									"});",
+									"",
+									"pm.test(\"Important client 'Baukammer Berlin' is on page\", function () ",
+									"{",
+									"    pm.expect(pm.response.text()).to.include(\"Baukammer Berlin\");",
+									"});",
+									"",
+									"pm.test(\"Important client 'Bundesinstitut für Berufsbildung' is on page\", function () ",
+									"{",
+									"    pm.expect(pm.response.text()).to.include(\"BIBB\");",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{baseurl}}/referenzen.html",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"referenzen.html"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "3209d245-3800-451e-aec3-e53e3cea59b3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "1c9d3818-7147-4b58-8bda-e0f14ecf39a5",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

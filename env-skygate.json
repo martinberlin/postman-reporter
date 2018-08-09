@@ -1,0 +1,14 @@
+{
+  "id": "82fa4186-7c49-4075-a830-71b40ae368f1",
+  "name": "Testing SkyGate Website",
+  "values": [
+    {
+      "value": "https://www.skygate.de",
+      "key": "baseurl",
+      "enabled": true
+    }
+  ],
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2018-08-06T07:57:46.747Z",
+  "_postman_exported_using": "Postman/6.2.2"
+}
