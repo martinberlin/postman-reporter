@@ -34,6 +34,18 @@ When executed it will read the /newman generated files when you set the report o
 Imports the file in 2 tables, report-resume and report (contains a row per test)
 At the moment is a simple example that supports only saving the same test one time per hour, but is a good start to make something more powerful.
 
+### How to customize the HTML
+
+There are 3 templates, one includes the other :
+   
+    1 - MAIN:  postman-collection-template
+    2 - Folder postman-folder-loop
+    3 - Item   postman-item-loop (Every test)
+    
+Editing the HTML there you can easily customize this to any other layout.
+
+NOTE: This parser expects that test are organized in Folders. If they are not, then the postman-collection-documentor.php should be modified accordingly.
+
 Please share your own corrections and reporting to contribute in the mission. Thanks for your interest,
 
 Martin [Fasani](https://fasani.de)
