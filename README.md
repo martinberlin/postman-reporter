@@ -6,7 +6,7 @@ The intention of this simple PHP scripts is to generate a Standalone HTML for yo
 
 We find Postman a great tool for testing APIs and any web content in general.
 
-###How to use 
+### How to use 
 
 Simply export your Collection with Postman to the directory where you cloned this repo.
 Update the collection name in postman-collection-documentor.php
@@ -36,4 +36,4 @@ At the moment is a simple example that supports only saving the same test one ti
 
 Please share your own corrections and reporting to contribute in the mission. Thanks for your interest,
 
-Martin Fasani
+Martin [Fasani](https://fasani.de)
